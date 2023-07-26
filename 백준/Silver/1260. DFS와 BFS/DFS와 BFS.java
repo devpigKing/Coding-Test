@@ -7,10 +7,10 @@ public class Main {
     
   public static void main(String[] args) {
       
-    Scanner scan = new Scanner(System.in);
-    int N = scan.nextInt(); // 정점의 수
-    int M = scan.nextInt(); // 간선의 수
-    int Start = scan.nextInt(); // 시작점
+    Scanner sc = new Scanner(System.in);
+    int N = sc.nextInt(); // 정점의 수
+    int M = sc.nextInt(); // 간선의 수
+    int Start = sc.nextInt(); // 시작점
       
     A = new ArrayList[N + 1];
       
@@ -19,8 +19,8 @@ public class Main {
     }
       
     for (int i = 0; i < M; i++) {
-      int S = scan.nextInt();
-      int E = scan.nextInt();
+      int S = sc.nextInt();
+      int E = sc.nextInt();
       A[S].add(E);
       A[E].add(S);
     }
