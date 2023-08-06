@@ -22,7 +22,7 @@ public class Main {
         int[] time = new int[N];
 
         long max = 0;
-        long min = Long.MAX_VALUE;
+        long min = 0;
 
         for(int i = 0; i < N; i++ ) {
             time[i] = Integer.parseInt(br.readLine());
