@@ -43,8 +43,8 @@ public class Main {
             long mid = (start+end)/2;
 
             long sum = 0;
-            for( int ti : time) {
-                long cnt = mid / ti;
+            for( int i = 0; i < time.length; i++ ) {
+                long cnt = mid / time[i];
 
                 if (sum >= M) {
                     break;
