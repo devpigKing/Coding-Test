@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.Stack;
+import java.util.StringTokenizer;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -9,10 +10,11 @@ public class Main {
         int[] A = new int[N];  // 수열
         int[] result = new int[N];  // 결과 배열
 
-        String[] str = br.readLine().split(" ");
+        StringBuilder sb = new StringBuilder();
 
+        StringTokenizer st = new StringTokenizer(br.readLine());
         for (int i = 0; i < N; i++) {
-            A[i] = Integer.parseInt(str[i]);
+            A[i] = Integer.parseInt(st.nextToken());
         }
 
         Stack<Integer> stack = new Stack<>();
