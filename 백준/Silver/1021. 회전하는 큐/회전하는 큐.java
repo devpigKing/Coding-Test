@@ -22,7 +22,7 @@ public class Main {
             deque.add(i);
         }
 
-        st = new StringTokenizer(br.readLine(), " ");
+        st = new StringTokenizer(br.readLine());
         for (int i = 0; i < M; i++) {
             A[i] = Integer.parseInt(st.nextToken());
         }
