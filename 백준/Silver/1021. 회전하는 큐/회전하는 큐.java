@@ -1,7 +1,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -15,7 +16,7 @@ public class Main {
         int[] A = new int[M];
         int cnt = 0;
 
-        LinkedList<Integer> deque = new LinkedList<>();
+        Deque<Integer> deque = new ArrayDeque<>();
 
         for (int i = 1; i <= N; i++) {
             deque.add(i);
@@ -27,7 +28,7 @@ public class Main {
         }
 
         for (int i = 0; i < M; i++) {
-            int goal = deque.indexOf(A[i]);
+            int goal = findIndex(deque, A[i]);
             int standard = (deque.size() - 1) / 2;
 
             if (goal <= standard) {
@@ -47,5 +48,17 @@ public class Main {
         }
 
         System.out.println(cnt);
+    }
+
+    // 덱에서 특정 요소의 위치 찾기
+    private static int findIndex(Deque<Integer> deque, int target) {
+        int index = 0;
+        for (int element : deque) {
+            if (element == target) {
+                return index;
+            }
+            index++;
+        }
+        return -1; // 요소가 덱에 존재하지 않는 경우
     }
 }
