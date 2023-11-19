@@ -2,22 +2,24 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
+        // 스캐너를 통해 n을 입력 받고
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int cnt = 0; // 동전의 갯수를 센다.
 
-        // 2원과 5원 동전을 사용하여 만들 수 있는 경우의 수 계산
-        int count = 0;
-        while (n >= 0) {
-            if (n % 5 == 0) {
-                count += n / 5;
-                System.out.println(count);
-                return;
+        while (n >= 0) { // 금액이 0보다 작거때까지
+            if (n %5 == 0) {
+                cnt += n/5;
+                System.out.println(cnt);
+                break;
             }
-            n -= 2;
-            count++;
-        }
 
-        // 만들 수 없는 경우
-        System.out.println(-1);
+            n -= 2;
+            cnt++;
+
+        }
+        if ( n < 0) {
+            System.out.println(-1);
+        }
     }
 }
