@@ -12,11 +12,5 @@ class Solution {
         return result;
     }
 
-    public static void main(String[] args) {
-        int start_num = 3;
-        int end_num = 7;
-
-        List<Integer> result = solution(start_num, end_num);
-        System.out.println(result); // [3, 4, 5, 6, 7]
-    }
+    
 }
