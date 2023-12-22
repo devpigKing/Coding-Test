@@ -1,29 +1,14 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 class Solution {
     public int[] solution(int[] arr, int[][] intervals) {
-        List<Integer> result = new ArrayList<>();
+        int[] interval1 = Arrays.copyOfRange(arr, intervals[0][0], intervals[0][1] + 1);
+        int[] interval2 = Arrays.copyOfRange(arr, intervals[1][0], intervals[1][1] + 1);
 
-        // 첫 번째 구간 추가
-        int firstStart = intervals[0][0];
-        int firstEnd = intervals[0][1];
-        for (int i = firstStart; i <= firstEnd; i++) {
-            result.add(arr[i]);
-        }
+        int[] answer = new int[interval1.length + interval2.length];
 
-        // 두 번째 구간 추가
-        int secondStart = intervals[1][0];
-        int secondEnd = intervals[1][1];
-        for (int i = secondStart; i <= secondEnd; i++) {
-            result.add(arr[i]);
-        }
-
-        // List를 배열로 변환
-        int[] answer = new int[result.size()];
-        for (int i = 0; i < result.size(); i++) {
-            answer[i] = result.get(i);
-        }
+        System.arraycopy(interval1, 0, answer, 0, interval1.length);
+        System.arraycopy(interval2, 0, answer, interval1.length, interval2.length);
 
         return answer;
     }
