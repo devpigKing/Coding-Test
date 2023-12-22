@@ -1,34 +1,20 @@
+import java.util.*;
 
 class Solution {
-
     public int[] solution(int[] arr) {
-
-        int start = 0;
-        int end = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == 2) {
-                start = i;
-                break;
+        int[] answer = {};
+        List<Integer> index = new LinkedList<>();
+        for(int i = 0 ; i < arr.length ; i++){
+            if(arr[i] == 2){
+                index.add(i);
             }
         }
-
-        for (int i = arr.length - 1; i >= start; i--) {
-            if (arr[i] == 2) {
-                end = i;
-                break;
-            }
-        }
-
-        if(start == 0 && end == 0) {
+        if(index.size() == 0){
             return new int[]{-1};
-        } 
-
-        int[] answer = new int[end - start + 1];
-        int idx = 0;
-        for (int i = start; i <= end; i++) {
-            answer[idx++] = arr[i];
         }
-
+        int startIndex = index.get(0);
+        int endIndex = index.get(index.size()-1);
+        answer = Arrays.copyOfRange(arr,startIndex,endIndex+1);
         return answer;
     }
 }
