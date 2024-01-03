@@ -1,14 +1,11 @@
 class Solution {
     public String solution(String n_str) {
-        int index = 0;
-        while (index < n_str.length() && n_str.charAt(index) == '0') {
-            index++;
+        StringBuilder sb = new StringBuilder(n_str);
+
+        while (sb.charAt(0) == '0') {
+            sb.deleteCharAt(0);
         }
 
-        if (index < n_str.length()) {
-            return n_str.substring(index);
-        } else {
-            return "0";
-        }
+        return sb.toString();
     }
 }
