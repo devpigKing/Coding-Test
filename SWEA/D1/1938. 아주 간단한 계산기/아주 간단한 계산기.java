@@ -49,15 +49,12 @@ class Solution
 		   표준입력 System.in 으로부터 스캐너를 만들어 데이터를 읽어옵니다.
 		 */
 		Scanner sc = new Scanner(System.in);
-		int a = sc.nextInt();
-        int b = sc.nextInt();
-        
-        System.out.println(a+b);
-        System.out.println(a-b);
-        System.out.println(a*b);
-        System.out.println(a/b);
-        
-
-		
+				int a = sc.nextInt();
+				int b = sc.nextInt();
+				
+				System.out.println(a+b);
+				System.out.println(a-b);
+				System.out.println(a*b);
+				System.out.println(a/b);
 	}
 }
