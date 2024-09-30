@@ -1,46 +1,43 @@
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.IOException;
 import java.util.StringTokenizer;
 
 class Solution {
-		static int A, B, N;
-		static int cnt;
-		
+
 		public static void main(String[] args) throws IOException {
 				
-				BufferedReader br = new BufferedReader(new InputStreamReader(System.in)); // 표준 입력 처리
+				BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 				StringTokenizer st;
 				StringBuilder sb = new StringBuilder();
 				
-				int T = Integer.parseInt(br.readLine());  // 테스트 케이스 입력
+				int T = Integer.parseInt(br.readLine());
 				
 				for (int i = 0; i < T; i++) {
 						st = new StringTokenizer(br.readLine(), " ");
-						A = Integer.parseInt(st.nextToken());
-						B = Integer.parseInt(st.nextToken());
-						N = Integer.parseInt(st.nextToken());
-						cnt = 0;
+						int A = Integer.parseInt(st.nextToken());
+						int B = Integer.parseInt(st.nextToken());
+						int N = Integer.parseInt(st.nextToken());
 						
-						if ( A > B ) {
-								dfs(A, B);
-						} else {
-								dfs(B, A);
+						int cnt = 0;
+						
+						if ( A < B ) {
+								int temp = A;
+								A = B;
+								B = temp; 
 						}
 						
-						sb.append(cnt).append("\n");
+						while ( A <= N && B <= N) {
+								if ( A > B ) {
+										B += A;
+								} else {
+										A += B;
+								}
+								cnt++;
+							
+						}
+						sb.append(cnt).append("\n"); // 각 테스트 케이스의 결과를 저장
 				}
-				
-				System.out.println(sb);
-
-		}
-		
-		public static void dfs (int x, int y) {
-				int sum = x + y;
-				cnt++;
-				if (sum > N) {
-						return;
-				} 
-				dfs(sum, x);
+				System.out.print(sb);
 		}
 }
